@@ -2,7 +2,7 @@
 
 ## Database Entity-Relationship Diagram
 
-![AirBnB Database ERD](./er_diagram.png)
+![AirBnB Database ERD](./er_diagram.jpg)
 
 ## Entities and Attributes
 

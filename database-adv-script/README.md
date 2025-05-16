@@ -6,6 +6,7 @@ This directory contains SQL scripts demonstrating complex queries for the AirBnB
 
 - The `joins_queries.sql` file demonstrates various types of SQL joins and advanced query techniques.
 - The `subqueries.sql` file showcases different types of subqueries (correlated and non-correlated).
+- The `aggregations_and_window_functions.sql` file illustrates aggregation functions and window functions for data analysis.
 
 ## Join Types Demonstrated
 
@@ -63,6 +64,38 @@ This directory contains SQL scripts demonstrating complex queries for the AirBnB
 - **Description**: Demonstrates subqueries within subqueries
 - **Use Case**: Identifying popular properties for investment analysis
 
+## Aggregation and Window Functions
+
+### 1. Basic Aggregation with GROUP BY
+- **Query**: Total number of bookings made by each user
+- **Description**: Uses COUNT function and GROUP BY to aggregate booking data by user
+- **Use Case**: Customer activity analysis and identifying power users
+
+### 2. Window Functions for Ranking
+- **Query**: Rank properties based on total number of bookings
+- **Description**: Uses different ranking functions (ROW_NUMBER, RANK, DENSE_RANK) to show different ranking approaches
+- **Use Case**: Creating leaderboards of popular properties and competitive analysis
+
+### 3. Advanced Aggregations for Location Analysis
+- **Query**: Comprehensive booking statistics by location
+- **Description**: Uses multiple aggregation functions (COUNT, AVG, MIN, MAX, SUM) to provide statistical insights
+- **Use Case**: Regional performance analysis and investment planning
+
+### 4. Time-based Analysis with Date Functions
+- **Query**: Monthly booking trends analysis
+- **Description**: Uses date functions with aggregations to analyze booking patterns over time
+- **Use Case**: Seasonal trend analysis and revenue forecasting
+
+### 5. Percentile Analysis with Window Functions
+- **Query**: Price analysis of properties by location
+- **Description**: Uses advanced window functions to analyze pricing strategies within locations
+- **Use Case**: Competitive pricing analysis and market positioning
+
+### 6. User Activity Analysis with Cumulative Statistics
+- **Query**: Progressive user activity tracking
+- **Description**: Uses window functions to calculate running totals and sequential statistics
+- **Use Case**: Customer journey analysis and lifetime value tracking
+
 ## Usage
 
 To execute these queries:
@@ -77,6 +110,7 @@ To execute these queries:
    ```bash
    source path/to/joins_queries.sql;
    source path/to/subqueries.sql;
+   source path/to/aggregations_and_window_functions.sql;
    ```
 
 ## Notes on SQL Join Performance
@@ -95,11 +129,18 @@ To execute these queries:
 - **Alternatives**: In some cases, JOINs might be more efficient than correlated subqueries
 - **Indexing**: Proper indexing is crucial for subquery performance
 
+## Notes on Aggregation and Window Function Performance
+
+- **GROUP BY Optimization**: Proper indexing on grouped columns can significantly improve performance
+- **Window Functions Overhead**: Window functions may be more resource-intensive than simple aggregations
+- **Partitioning Impact**: Using PARTITION BY with large datasets can increase memory usage
+- **Materialized Views**: For frequently used aggregations, consider materialized views or summary tables
+
 ## Learning Outcomes
 
 By studying these queries, you'll learn:
 
-1. How to properly structure complex multi-table joins and subqueries
-2. How to choose between joins and subqueries for different scenarios
-3. Techniques for writing efficient subqueries that leverage indexes
-4. Practical applications of advanced SQL concepts for business intelligence
+1. How to properly structure complex multi-table joins, subqueries, and aggregations
+2. How to choose appropriate window functions for different analytical needs
+3. Techniques for optimizing performance of aggregation and window functions
+4. How to extract meaningful business intelligence through SQL data analysis

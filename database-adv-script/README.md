@@ -1,10 +1,11 @@
-# Advanced SQL Join Queries for AirBnB Database
+# Advanced SQL Queries for AirBnB Database
 
-This directory contains SQL scripts demonstrating complex join queries for the AirBnB database schema.
+This directory contains SQL scripts demonstrating complex queries for the AirBnB database schema.
 
 ## Overview
 
-The `joins_queries.sql` file demonstrates various types of SQL joins and advanced query techniques to extract meaningful relationships from the AirBnB database.
+- The `joins_queries.sql` file demonstrates various types of SQL joins and advanced query techniques.
+- The `subqueries.sql` file showcases different types of subqueries (correlated and non-correlated).
 
 ## Join Types Demonstrated
 
@@ -40,6 +41,28 @@ The `joins_queries.sql` file demonstrates various types of SQL joins and advance
 - **Description**: Groups properties by location and calculates average ratings and counts
 - **Use Case**: Market analysis and location performance metrics
 
+## Subquery Types Demonstrated
+
+### 1. Non-correlated Subquery
+- **Query**: Find all properties where the average rating is greater than 4.0
+- **Description**: Uses a subquery that can run independently of the outer query
+- **Use Case**: Highlighting top-rated properties for promotional content
+
+### 2. Correlated Subquery
+- **Query**: Find users who have made more than 3 bookings
+- **Description**: Uses a subquery that references columns from the outer query
+- **Use Case**: Identifying frequent customers for loyalty programs
+
+### 3. Correlated Subquery with EXISTS
+- **Query**: Find hosts who have properties with at least one 5-star review
+- **Description**: Uses the EXISTS operator with a correlated subquery
+- **Use Case**: Identifying high-performing hosts for recognition programs
+
+### 4. Nested Subqueries
+- **Query**: Find properties that have more bookings than the average
+- **Description**: Demonstrates subqueries within subqueries
+- **Use Case**: Identifying popular properties for investment analysis
+
 ## Usage
 
 To execute these queries:
@@ -50,9 +73,10 @@ To execute these queries:
    ```bash
    mysql -u username -p airbnb_db
    ```
-4. Run the join queries:
+4. Run the queries:
    ```bash
    source path/to/joins_queries.sql;
+   source path/to/subqueries.sql;
    ```
 
 ## Notes on SQL Join Performance
@@ -64,11 +88,18 @@ To execute these queries:
   - Use LEFT JOIN when you want all records from the left table regardless of matches
   - Use FULL OUTER JOIN (simulated) when you need all records from both tables
 
+## Notes on SQL Subquery Performance
+
+- **Execution Order**: The inner subquery typically executes first, then the outer query
+- **Correlated Subqueries**: May execute once for each row processed by the outer query
+- **Alternatives**: In some cases, JOINs might be more efficient than correlated subqueries
+- **Indexing**: Proper indexing is crucial for subquery performance
+
 ## Learning Outcomes
 
 By studying these queries, you'll learn:
 
-1. How to properly structure complex multi-table joins
-2. Techniques for simulating FULL OUTER JOIN in MySQL
-3. Practical applications of different join types for business use cases
-4. How to combine joins with other SQL features like aggregation and filtering
+1. How to properly structure complex multi-table joins and subqueries
+2. How to choose between joins and subqueries for different scenarios
+3. Techniques for writing efficient subqueries that leverage indexes
+4. Practical applications of advanced SQL concepts for business intelligence
